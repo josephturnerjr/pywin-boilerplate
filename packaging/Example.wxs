@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="SEARCHANDREPLACEPRODUCTCODE" 
+             Codepage="1252" 
+             Language="1033" 
+             Manufacturer="Joseph Turner" 
+             Name="Example" 
+             UpgradeCode="{40A0D980-C47C-49ff-9EEB-B24F4CA62BBE}" 
+             Version="SEARCHANDREPLACEPRODUCTVERSION">
+        <Package Comments="Example helps you to find MD5 hashes of phrases and open a cool website" 
+                 Compressed="yes" 
+                 InstallerVersion="200" 
+                 Languages="1033" 
+                 Manufacturer="Joseph Turner" 
+                 Platform="x86" />
+        <Upgrade Id="{40A0D980-C47C-49ff-9EEB-B24F4CA62BBE}">
+            <UpgradeVersion OnlyDetect="no"
+                            Minimum="0.0.1" IncludeMinimum="yes"
+                            Maximum="SEARCHANDREPLACEPRODUCTVERSION" IncludeMaximum="no"
+                            Property="OLDVERSIONBEINGUPGRADED" />
+            <UpgradeVersion Minimum="SEARCHANDREPLACEPRODUCTVERSION"
+                            OnlyDetect="yes"
+                            Property="NEWERVERSIONDETECTED" />
+        </Upgrade>
+        <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">
+            NOT NEWERVERSIONDETECTED OR Installed
+        </Condition>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="EXAMPLEFOLDER" Name="ExampleRapidPython">
+                    <Directory Id="ResourceDirectory" Name="resources" />
+                </Directory>
+            </Directory>
+        </Directory>
+
+        <DirectoryRef Id="EXAMPLEFOLDER">
+            <Component Id="ExampleExe" Guid="{B20040D3-C4E5-46e3-92AB-BA3E3EAC7A30}">
+                <File Id="ExampleExe" 
+                      Name="example.exe" 
+                      KeyPath="yes" 
+                      DiskId="1" 
+                      Source="../dist/example.exe" />
+            </Component>
+            <Component Id="Microsoft.VC90.CRT.manifest" Guid="{992ADE1C-F94A-4294-BA24-9DDFEAD52EF1}">
+                <File Id="Microsoft.VC90.CRT.manifest"
+                      Name="Microsoft.VC90.CRT.manifest"
+                      KeyPath="yes"
+                      DiskId="1"
+                      Source="..\dist\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+            </Component>
+            <Component Id="msvcm90.dll" Guid="{7c95b0ec-a429-4e94-be2d-2806dd79e3eb}">
+                <File Id="msvcm90.dll"
+                      Name="msvcm90.dll"
+                      KeyPath="yes"
+                      DiskId="1"
+                      Source="..\dist\Microsoft.VC90.CRT\msvcm90.dll" />
+            </Component>
+            <Component Id="msvcp90.dll" Guid="{F7968037-C8C3-4b8e-A7F1-040BB4DE49BE}">
+                <File Id="msvcp90.dll"
+                      Name="msvcp90.dll"
+                      KeyPath="yes"
+                      DiskId="1"
+                      Source="..\dist\Microsoft.VC90.CRT\msvcp90.dll" />
+            </Component>
+            <Component Id="msvcr90.dll" Guid="{FFC8ADAA-0659-474f-A84B-53BD38F38FA8}">
+                <File Id="msvcr90.dll"
+                      Name="msvcr90.dll"
+                      KeyPath="yes"
+                      DiskId="1"
+                      Source="..\dist\Microsoft.VC90.CRT\msvcr90.dll" />
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="ResourceDirectory" FileSource="../dist/resources">
+            <Component Id="example.ico" Guid="{F14C65DC-B4BC-437f-B7C7-C6FDE5DCB05D}">
+                <File Id="example.ico" 
+                      Name="example.ico" 
+                      KeyPath="yes" 
+                      DiskId="1" 
+                      Source="../dist/resources/example.ico" />
+            </Component>
+        </DirectoryRef>
+        <Icon Id="example.ico" SourceFile="..\dist\resources\example.ico" />
+        <Media Id="1" Cabinet="example" EmbedCab="yes" />
+        <Property Id="ARPCONTACT" Value="Joseph Turner" />
+        <Property Id="ARPCOMMENTS" Value="Example helps you to find MD5 hashes of phrases and open a cool website" />
+        <Property Id="ARPURLINFOABOUT" Value="http://www.thejosephturner.com" />
+        <Property Id="ALLUSERS" Value="2" />
+        <Property Id="ARPPRODUCTICON" Value="example.ico" />
+        <Feature Id="DefaultFeature" Title="Example" Description="Full Example Installation" Display="expand" ConfigurableDirectory="EXAMPLEFOLDER" Level="1">
+            <ComponentRef Id="example.ico" />
+            <ComponentRef Id="ExampleExe" />
+            <ComponentRef Id="Microsoft.VC90.CRT.manifest" />
+            <ComponentRef Id="msvcm90.dll" />
+            <ComponentRef Id="msvcp90.dll" />
+            <ComponentRef Id="msvcr90.dll" />
+        </Feature>
+        <InstallExecuteSequence>
+            <RemoveExistingProducts After="InstallValidate" />
+            <Custom Action="LaunchApplication" OnExit="success">
+                <![CDATA[LAUNCHAPPONEXIT=1 and NOT Installed and UILevel < 5]]>
+            </Custom>
+        </InstallExecuteSequence>
+        <Property Id="WixShellExecTarget" Value="[#ExampleExe]" />
+        <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+        <Property Id="LAUNCHAPPONEXIT" Value="1" />
+    </Product>
+</Wix>

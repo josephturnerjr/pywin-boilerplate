@@ -1,0 +1,6 @@
+*.wixobj
+*.msi
+*.msm
+*.wixpdb
+wxstemp/
+*.product

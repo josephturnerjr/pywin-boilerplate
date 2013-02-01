@@ -1,0 +1,115 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXAMPLE DIALOGEX 0, 0, 298, 162
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rapid prototype"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,186,141,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,240,141,50,14
+    GROUPBOX        "Interactive Edit Control",IDC_STATIC,7,6,283,86
+    EDITTEXT        IDC_PHRASE,84,68,150,18,ES_AUTOHSCROLL
+    RTEXT           "Your phrase",IDC_STATIC,18,68,54,18,SS_CENTERIMAGE
+    PUSHBUTTON      "Get hash",IDC_GET_HASH,240,68,43,18
+    GROUPBOX        "Big Website Button",IDC_STATIC,7,98,283,33
+    LTEXT           "Enter a phrase below to see it's MD5 hash.",IDC_STATIC,14,18,259,20
+    PUSHBUTTON      "Launch website",IDC_WEBSITE,200,107,83,18
+    LTEXT           "Yo, lords and ladies, check out my website!",IDC_STATIC,14,108,179,16
+    LTEXT           "",IDC_MD5,14,38,259,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_EXAMPLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 290
+        VERTGUIDE, 14
+        VERTGUIDE, 77
+        VERTGUIDE, 143
+        VERTGUIDE, 170
+        VERTGUIDE, 264
+        VERTGUIDE, 283
+        VERTGUIDE, 290
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 155
+        HORZGUIDE, 38
+        HORZGUIDE, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
