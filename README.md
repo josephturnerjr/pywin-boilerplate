@@ -11,10 +11,10 @@ The application itself can use a Windows resource template file as created by th
 
 # Building
 
-First, you'll need to install the requirements. virtualenv is highly recommended. From within the project directory:
+> These instructions presume a working [Cygwin](http://cygwin.com/) installation; if you're not using Cygwin, you'll need to use the power of your superior primate brain to adapt these instructions and installation tools to your needs. The build infrastructure for this project uses both `bash` and `make`.
+
+First, you'll need to install the requirements. From within the project directory:
  
-    ?> virtualenv env/
-    ?> source env/bin/activate
     ?> pip install -r REQUIREMENTS
 
 You can build the executable for the example application by running make from the root directory. The executable will be placed in the dist/ directory.
