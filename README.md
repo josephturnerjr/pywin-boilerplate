@@ -11,7 +11,7 @@ The application itself can use a Windows resource template file as created by th
 
 # Building
 
-> These instructions presume a working [Cygwin](http://cygwin.com/) installation; if you're not using Cygwin, you'll need to use the power of your superior primate brain to adapt these instructions and installation tools to your needs. The build infrastructure for this project uses both `bash` and `make`.
+_These instructions presume a working [Cygwin](http://cygwin.com/) installation; if you're not using Cygwin, you'll need to use the power of your superior primate brain to adapt these instructions and installation tools to your needs. The build infrastructure for this project uses both `bash` and `make`._
 
 First, you'll need to install the requirements. From within the project directory:
  
